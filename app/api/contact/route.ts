@@ -1,21 +1,22 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { env } from 'process'
 
 export async function POST(req: Request) {
   const { name, email, message } = await req.json()
 
   // メール送信の設定
   const transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 587,
+    host: env.SMTP_HOST,
+    port: parseInt(env.SMTP_PORT || '587'),
     auth: {
-      user: 'your-email@example.com',
-      pass: 'your-password'
+      user: env.SMTP_USER,
+      pass: env.SMTP_PASS
     }
   })
 
   const mailOptions = {
-    from: 'your-email@example.com',
+    from: env.SMTP_USER,
     to: 'otoiawase@asimatch.com',
     subject: '新しいお問い合わせ',
     text: `
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
   }
 
   const userMailOptions = {
-    from: 'your-email@example.com',
+    from: env.SMTP_USER,
     to: email,
     subject: 'お問い合わせありがとうございます',
     text: `
