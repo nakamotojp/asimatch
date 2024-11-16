@@ -1,0 +1,29 @@
+@font-face {
+	font-family: 'sow-elegantline';
+	src:url(./../fonts/elegantline.eot);
+	src:url(./../fonts/elegantline.eot) format('embedded-opentype'),
+	url(./../fonts/elegantline.woff) format('woff'),
+	url(./../fonts/elegantline.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+.sow-icon-elegantline {
+	font-family: 'sow-elegantline';
+	display: inline-block;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.sow-icon-elegantline[data-sow-icon]:before {
+	content: attr(data-sow-icon);
+}
+/*This file was exported by "Export WP Page to Static HTML" plugin which created by ReCorp (https://myrecorp.com) */
